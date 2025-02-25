@@ -62,15 +62,26 @@ const DataPage = () => {
 
   const revisedData = Object.values(groupedData);
 
+  const handleForwardClick = () => {
+    setFilterValue("");
+    setOffsetValue((prevValue) => prevValue + 106);
+  };
+
+  const handleBackwardClick = () => {
+    if (offsetValue > 0) {
+      setFilterValue("");
+      setOffsetValue((prevValue) => prevValue - 106);
+    }
+  };
+
   return (
     <div className="flex flex-col align-items">
       <FilterBar
-        onForwardClick={() => setOffsetValue((prevValue) => prevValue + 106)}
-        onBackwardClick={() =>
-          offsetValue > 0 && setOffsetValue((prevValue) => prevValue - 106)
-        }
+        onForwardClick={handleForwardClick}
+        onBackwardClick={handleBackwardClick}
         backwardDisabled={offsetValue === 0 && true}
         setFilterValue={setFilterValue}
+        setOffsetValue={setOffsetValue}
         onChartClick={() => setIsGraph((prev) => !prev)}
         isGraph={isGraph}
         filterValue={filterValue}

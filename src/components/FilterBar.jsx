@@ -8,7 +8,7 @@ import { useState } from "react";
 const FilterBar = (props) => {
   return (
     <div className="flex justify-between p-2">
-      <div className="flex">
+      <div className="flex w-1/5">
         <div className="px-2">
           <BackwardBtn
             onClick={props.onBackwardClick}
@@ -30,10 +30,11 @@ const FilterBar = (props) => {
           </ChartBtn>
         </div>
       </div>
-      <div>
+      <div className="flex w-1/5 justify-end">
         <FilterBtn
           filterValue={props.filterValue}
           setFilterValue={props.setFilterValue}
+          setOffsetValue={props.setOffsetValue}
         />
       </div>
     </div>

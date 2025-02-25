@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -68,6 +68,20 @@ const Chart = (props) => {
         text: datasetData.length
           ? `Dengue in ${datasetData[0].year}`
           : "Dengue Cases",
+      },
+    },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: "Weeks",
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: "Number of Cases",
+        },
       },
     },
   };
